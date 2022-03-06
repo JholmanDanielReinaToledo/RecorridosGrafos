@@ -1,4 +1,5 @@
 import pydash as py
+from nodo import nodo_class
 
 def validar_puzzle(puzzle):
     duplicados = py.duplicates(puzzle)
@@ -10,8 +11,10 @@ def validar_puzzle(puzzle):
         else:
             return False
 
-lista1 = [
-    1, 2, 3, 4, 5, 6, 7, 8, 0
-]
 
-print(validar_puzzle(lista1))
+
+def validar_nodos_iguales(nodo1: nodo_class, nodo2: nodo_class):
+    if nodo1.get_padre() == nodo2.get_padre() and nodo1.get_puzzle() == nodo2.get_puzzle():
+        return True
+    else:
+        return False

@@ -58,11 +58,12 @@ def imprimir_bonito(puzzle):
     else:
         print("No se puede imprimir")
 
-lista1 = [
-    1, 0, 2, 2, 5, 1, 1, 8, 9
-]
-imprimir_bonito(lista1)
-imprimir_bonito(mover_0_arriba(lista1))
+#lista1 = [
+#    1, 0, 2, 2, 5, 1, 1, 8, 9
+#]
+
+#imprimir_bonito(lista1)
+#imprimir_bonito(mover_0_abajo(lista1))
 # print(mover_0_derecha(lista1))
 # print(mover_0_izquierda(lista1))
 
