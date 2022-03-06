@@ -45,18 +45,9 @@ def mover_0_abajo(puzzle):
     if posicion == 6 or posicion == 7 or posicion == 8:
         return False
 
-    return mover_arriba_generic(puzzle, posicion)
+    return mover_abajo_generic(puzzle, posicion)
 
-def imprimir_bonito(puzzle):
-    if puzzle:
-        contador = 0
-        for elemnto in range(3):
-            for elemnto2 in range(3):
-                print(str(puzzle[contador]) + " ", end="")
-                contador = contador+1
-            print("")
-    else:
-        print("No se puede imprimir")
+
 
 #lista1 = [
 #    1, 0, 2, 2, 5, 1, 1, 8, 9

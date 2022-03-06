@@ -1,4 +1,5 @@
-import reglas
+from tkinter import messagebox
+
 from nodo import nodo_class
 import general
 
@@ -12,54 +13,45 @@ class algoritmo_BPA:
         self.iniciar()
 
     def iniciar(self):
+        contador = 0
         while len(self.lista_abierto) > 0:
+            print(contador)
+            contador = contador + 1
             nodo = self.lista_abierto[0]
             self.lista_abierto.pop(0)
-            if not general.nodo_en_lista(self.lista_cerrado, nodo):
+            if not general.nodo_en_lista(self.lista_cerrado, nodo): #Verificar toda la rama hacia el padre que no este repetido
                 self.lista_cerrado.append(nodo)
-                self.obtener_sucesores(nodo)
-
-
-    def obtener_sucesores(self, nodo: nodo_class):
-        sucesores = list()
-
-        for i in range(4):
-            if i == 0:
-                puzzle = reglas.mover_0_derecha(nodo.get_puzzle())
-                if puzzle:
-                    if general.validar_puzzle(puzzle):
-                        nuevo_nodo = nodo_class(nodo, puzzle, "mover 0 derecha")
-                        sucesores.append(nuevo_nodo)
-            if i == 1:
-                puzzle = reglas.mover_0_abajo(nodo.get_puzzle())
-                if puzzle:
-                    if general.validar_puzzle(puzzle):
-                        nuevo_nodo = nodo_class(nodo, puzzle, "mover 0 abajo")
-                        sucesores.append(nuevo_nodo)
-            if i == 2:
-                puzzle = reglas.mover_0_izquierda(nodo.get_puzzle())
-                if puzzle:
-                    if general.validar_puzzle(puzzle):
-                        nuevo_nodo = nodo_class(nodo, puzzle, "mover 0 izquierda")
-                        sucesores.append(nuevo_nodo)
-            if i == 3:
-                puzzle = reglas.mover_0_arriba(nodo.get_puzzle())
-                if puzzle:
-                    if general.validar_puzzle(puzzle):
-                        nuevo_nodo = nodo_class(nodo, puzzle, "mover 0 arriba")
-                        sucesores.append(nuevo_nodo)
-
-        print(sucesores)
-
+                sucesores = general.obtener_sucesores(nodo)
+                if len(sucesores) > 0 and not general.validar_puzzle_en_nodos(sucesores, self.fin):
+                    for nod in sucesores:
+                        self.lista_abierto.append(nod)
+                if general.validar_puzzle_en_nodos(sucesores, self.fin):
+                    self.nodo_final = general.validar_puzzle_en_nodos(sucesores, self.fin)
+                    break
+        if self.nodo_final:
+            messagebox.showinfo(title="Exito")
+            print(self.nodo_final.get_puzzle())
 
 lista1 = [
+    1, 2, 3, 4, 5, 6, 7, 0, 8
+]
+
+lista2 = [
     1, 2, 3, 4, 5, 6, 7, 8, 0
 ]
-nodoP1 = nodo_class(None, lista1, "asd")
+#nodoP1 = nodo_class(None, lista1, "asd")
 
-algoritmo_BPA(lista1, lista1)
+#sucesores = general.obtener_sucesores(nodoP1)
 
+#for i in sucesores:
+#    general.imprimir_bonito(i.get_puzzle())
+#    print("")
 
+#response = general.validar_puzzle_en_nodos([nodoP1], lista1)
+
+#print(response)
+
+algoritmo_BPA(lista1, lista2)
 
 
 #nodoP2 = nodo_class(None, lista1, "asd")

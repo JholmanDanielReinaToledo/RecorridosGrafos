@@ -3,7 +3,7 @@ class nodo_class:
     def __init__(self, padre, puzzle, regla):
         self.set_puzzle(puzzle)
         self.set_padre(padre)
-        self.hijos: list(nodo_class) = list()
+        self.hijos = list()
         self.set_regla_aplicada(regla)
 
     def set_regla_aplicada(self, regla):
