@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import messagebox
 from general import validar_puzzle
+from BPA import algoritmo_BPA
 
 class interfaz_grafica_class:
 
@@ -154,7 +155,7 @@ class interfaz_grafica_class:
             es_valido_final = validar_puzzle(nodo_final)
             if es_valido_inicial and es_valido_final:
                 pass
-                #mandar a ejecutar el algoritmo
+                algoritmo_BPA(nodo_inicial, nodo_final)
             elif not es_valido_inicial:
                 messagebox.showerror(title="Error", message="El nodo inicial no es valido")
             elif not es_valido_final:

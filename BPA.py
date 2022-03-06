@@ -18,29 +18,18 @@ class algoritmo_BPA:
             #print("primera", contador)
             contador = contador + 1
             nodo = self.lista_abierto[0]
-            print(len(self.lista_cerrado))
+            print("Lista cerrada", len(self.lista_cerrado))
+            print("Lista abierta", len(self.lista_abierto))
             self.lista_abierto.pop(0)
             if not general.nodo_en_lista_cerrado(self.lista_cerrado, nodo):
+                print("entro")
                 self.lista_cerrado.append(nodo)
                 sucesores = general.obtener_sucesores(nodo)
-
-                print("Nodo")
-                general.imprimir_bonito(nodo.get_puzzle())  # esto es un print
-                print("")
-                print("Sucesores")
-                for i in sucesores:
-                    print(i.get_regla_aplicada())
-                    general.imprimir_bonito(i.get_puzzle())
-                    print("")
-
-
                 if len(sucesores) > 0 and not general.validar_puzzle_en_nodos(sucesores, self.fin.copy()):
                     for nod in sucesores:
-                        #if general.validar_puzzle_en_nodos(sucesores)
                         self.lista_abierto.append(nod)
-                        #print("metio uno a sucesores")
                 elif len(sucesores) == 0:
-                    print("No hay sucesores")
+                    pass
                 elif general.validar_puzzle_en_nodos(sucesores, self.fin.copy()):
                     self.nodo_final = general.validar_puzzle_en_nodos(sucesores, self.fin)
                     break
@@ -48,12 +37,12 @@ class algoritmo_BPA:
             messagebox.showinfo(title="Exito", message="Exito, nodo encontrado")
             print(self.nodo_final.get_puzzle())
 
-lista1 = [
+'''lista1 = [
     1, 2, 3, 4, 5, 6, 7, 8, 0
 ]
 
 lista2 = [
-    1, 2, 3, 4, 0, 6, 7, 8, 5
+    1, 2, 3, 4, 5, 0, 7, 8, 6
 ]
 
 lista3 = [
@@ -77,5 +66,5 @@ nodoP4B = nodo_class(nodoP3B, lista2.copy(), "asd")
 #print(respose)
 
 
-algoritmo_BPA(lista1, lista3)
-
+algoritmo_BPA(lista1, lista2)
+'''
