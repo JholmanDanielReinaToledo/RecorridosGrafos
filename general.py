@@ -19,3 +19,11 @@ def validar_nodos_iguales(nodo1: nodo_class, nodo2: nodo_class):
         return True
     else:
         return False
+
+def nodo_en_lista(lista, nodo: nodo_class):
+    for nod in lista:
+        if validar_nodos_iguales(nod, nodo):
+            return True
+
+    return False
+
