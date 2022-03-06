@@ -16,8 +16,6 @@ class algoritmo_BPA:
             nodo = self.lista_abierto[0]
             self.lista_abierto.pop(0)
 
-
-
 lista1 = [
     1, 2, 3, 4, 5, 6, 7, 8, 0
 ]

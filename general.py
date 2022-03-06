@@ -6,12 +6,13 @@ def validar_puzzle(puzzle):
     if len(puzzle) != 9:
         return False
     else:
+        for i in puzzle:
+            if i > 8 or i < 0:
+                return False
         if len(duplicados) == 0:
             return True
         else:
             return False
-
-
 
 def validar_nodos_iguales(nodo1: nodo_class, nodo2: nodo_class):
     if nodo1.get_padre() == nodo2.get_padre() and nodo1.get_puzzle() == nodo2.get_puzzle():
