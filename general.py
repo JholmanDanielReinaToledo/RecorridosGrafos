@@ -125,3 +125,623 @@ def obtener_sucesores(nodo: nodo_class):
                     nuevo_nodo = nodo_class(nodo, puzzle4, "mover 0 arriba")
                     sucesores.append(nuevo_nodo)
     return sucesores
+
+def calcular_1(posicion1: int, posicion2: int):
+    if posicion1 == 0:
+        if posicion2 == 0:
+            return 0
+        if posicion2 == 1:
+            return 1.1
+        if posicion2 == 2:
+            return 2.2
+        if posicion2 == 3:
+            return 1.1
+        if posicion2 == 4:
+            return 2.2
+        if posicion2 == 5:
+            return 3.3
+        if posicion2 == 6:
+            return 2.2
+        if posicion2 == 7:
+            return 3.3
+        if posicion2 == 8:
+            return 4.4
+    if posicion1 == 1:
+        if posicion2 == 0:
+            return 1.1
+        if posicion2 == 1:
+            return 0
+        if posicion2 == 2:
+            return 1.1
+        if posicion2 == 3:
+            return 2.2
+        if posicion2 == 4:
+            return 1.1
+        if posicion2 == 5:
+            return 2.2
+        if posicion2 == 6:
+            return 3.3
+        if posicion2 == 7:
+            return 2.2
+        if posicion2 == 8:
+            return 3.3
+    if posicion1 == 2:
+        if posicion2 == 0:
+            return 2.2
+        if posicion2 == 1:
+            return 1.1
+        if posicion2 == 2:
+            return 0
+        if posicion2 == 3:
+            return 3.3
+        if posicion2 == 4:
+            return 2.2
+        if posicion2 == 5:
+            return 1.1
+        if posicion2 == 6:
+            return 4.4
+        if posicion2 == 7:
+            return 3.3
+        if posicion2 == 8:
+            return 2.2
+    if posicion1 == 3:
+        if posicion2 == 0:
+            return 1.1
+        if posicion2 == 1:
+            return 2.2
+        if posicion2 == 2:
+            return 3.3
+        if posicion2 == 3:
+            return 0
+        if posicion2 == 4:
+            return 1.1
+        if posicion2 == 5:
+            return 2.2
+        if posicion2 == 6:
+            return 1.1
+        if posicion2 == 7:
+            return 2.2
+        if posicion2 == 8:
+            return 3.3
+    if posicion1 == 4:
+        if posicion2 == 0:
+            return 2.2
+        if posicion2 == 1:
+            return 1.1
+        if posicion2 == 2:
+            return 2.2
+        if posicion2 == 3:
+            return 1.1
+        if posicion2 == 4:
+            return 0
+        if posicion2 == 5:
+            return 1.1
+        if posicion2 == 6:
+            return 2.2
+        if posicion2 == 7:
+            return 1.1
+        if posicion2 == 8:
+            return 2.2
+    if posicion1 == 5:
+        if posicion2 == 0:
+            return 3.3
+        if posicion2 == 1:
+            return 2.2
+        if posicion2 == 2:
+            return 1.1
+        if posicion2 == 3:
+            return 2.2
+        if posicion2 == 4:
+            return 1.1
+        if posicion2 == 5:
+            return 0
+        if posicion2 == 6:
+            return 3.3
+        if posicion2 == 7:
+            return 2.2
+        if posicion2 == 8:
+            return 1.1
+    if posicion1 == 6:
+        if posicion2 == 0:
+            return 2.2
+        if posicion2 == 1:
+            return 3.3
+        if posicion2 == 2:
+            return 4.4
+        if posicion2 == 3:
+            return 1.1
+        if posicion2 == 4:
+            return 2.2
+        if posicion2 == 5:
+            return 3.3
+        if posicion2 == 6:
+            return 0
+        if posicion2 == 7:
+            return 1.1
+        if posicion2 == 8:
+            return 2.2
+    if posicion1 == 7:
+        if posicion2 == 0:
+            return 3.3
+        if posicion2 == 1:
+            return 2.2
+        if posicion2 == 2:
+            return 3.3
+        if posicion2 == 3:
+            return 2.2
+        if posicion2 == 4:
+            return 1.1
+        if posicion2 == 5:
+            return 2.2
+        if posicion2 == 6:
+            return 1.1
+        if posicion2 == 7:
+            return 0
+        if posicion2 == 8:
+            return 1.1
+    if posicion1 == 8:
+        if posicion2 == 0:
+            return 4.4
+        if posicion2 == 1:
+            return 3.3
+        if posicion2 == 2:
+            return 2.2
+        if posicion2 == 3:
+            return 3.3
+        if posicion2 == 4:
+            return 2.2
+        if posicion2 == 5:
+            return 1.1
+        if posicion2 == 6:
+            return 2.2
+        if posicion2 == 7:
+            return 1.1
+        if posicion2 == 8:
+            return 0
+
+def calcular_1(posicion1: int, posicion2: int):
+    if posicion1 == 0:
+        if posicion2 == 0:
+            return 0
+        if posicion2 == 1:
+            return 1.1
+        if posicion2 == 2:
+            return 2.2
+        if posicion2 == 3:
+            return 1.1
+        if posicion2 == 4:
+            return 2.2
+        if posicion2 == 5:
+            return 3.3
+        if posicion2 == 6:
+            return 2.2
+        if posicion2 == 7:
+            return 3.3
+        if posicion2 == 8:
+            return 4.4
+    if posicion1 == 1:
+        if posicion2 == 0:
+            return 1.1
+        if posicion2 == 1:
+            return 0
+        if posicion2 == 2:
+            return 1.1
+        if posicion2 == 3:
+            return 2.2
+        if posicion2 == 4:
+            return 1.1
+        if posicion2 == 5:
+            return 2.2
+        if posicion2 == 6:
+            return 3.3
+        if posicion2 == 7:
+            return 2.2
+        if posicion2 == 8:
+            return 3.3
+    if posicion1 == 2:
+        if posicion2 == 0:
+            return 2.2
+        if posicion2 == 1:
+            return 1.1
+        if posicion2 == 2:
+            return 0
+        if posicion2 == 3:
+            return 3.3
+        if posicion2 == 4:
+            return 2.2
+        if posicion2 == 5:
+            return 1.1
+        if posicion2 == 6:
+            return 4.4
+        if posicion2 == 7:
+            return 3.3
+        if posicion2 == 8:
+            return 2.2
+    if posicion1 == 3:
+        if posicion2 == 0:
+            return 1.1
+        if posicion2 == 1:
+            return 2.2
+        if posicion2 == 2:
+            return 3.3
+        if posicion2 == 3:
+            return 0
+        if posicion2 == 4:
+            return 1.1
+        if posicion2 == 5:
+            return 2.2
+        if posicion2 == 6:
+            return 1.1
+        if posicion2 == 7:
+            return 2.2
+        if posicion2 == 8:
+            return 3.3
+    if posicion1 == 4:
+        if posicion2 == 0:
+            return 2.2
+        if posicion2 == 1:
+            return 1.1
+        if posicion2 == 2:
+            return 2.2
+        if posicion2 == 3:
+            return 1.1
+        if posicion2 == 4:
+            return 0
+        if posicion2 == 5:
+            return 1.1
+        if posicion2 == 6:
+            return 2.2
+        if posicion2 == 7:
+            return 1.1
+        if posicion2 == 8:
+            return 2.2
+    if posicion1 == 5:
+        if posicion2 == 0:
+            return 3.3
+        if posicion2 == 1:
+            return 2.2
+        if posicion2 == 2:
+            return 1.1
+        if posicion2 == 3:
+            return 2.2
+        if posicion2 == 4:
+            return 1.1
+        if posicion2 == 5:
+            return 0
+        if posicion2 == 6:
+            return 3.3
+        if posicion2 == 7:
+            return 2.2
+        if posicion2 == 8:
+            return 1.1
+    if posicion1 == 6:
+        if posicion2 == 0:
+            return 2.2
+        if posicion2 == 1:
+            return 3.3
+        if posicion2 == 2:
+            return 4.4
+        if posicion2 == 3:
+            return 1.1
+        if posicion2 == 4:
+            return 2.2
+        if posicion2 == 5:
+            return 3.3
+        if posicion2 == 6:
+            return 0
+        if posicion2 == 7:
+            return 1.1
+        if posicion2 == 8:
+            return 2.2
+    if posicion1 == 7:
+        if posicion2 == 0:
+            return 3.3
+        if posicion2 == 1:
+            return 2.2
+        if posicion2 == 2:
+            return 3.3
+        if posicion2 == 3:
+            return 2.2
+        if posicion2 == 4:
+            return 1.1
+        if posicion2 == 5:
+            return 2.2
+        if posicion2 == 6:
+            return 1.1
+        if posicion2 == 7:
+            return 0
+        if posicion2 == 8:
+            return 1.1
+    if posicion1 == 8:
+        if posicion2 == 0:
+            return 4.4
+        if posicion2 == 1:
+            return 3.3
+        if posicion2 == 2:
+            return 2.2
+        if posicion2 == 3:
+            return 3.3
+        if posicion2 == 4:
+            return 2.2
+        if posicion2 == 5:
+            return 1.1
+        if posicion2 == 6:
+            return 2.2
+        if posicion2 == 7:
+            return 1.1
+        if posicion2 == 8:
+            return 0
+
+def calcular_informacion_solop(posicion1: int, posicion2: int):
+    if posicion1 == 0:
+        if posicion2 == 0:
+            return 5
+        if posicion2 == 1:
+            return 4
+        if posicion2 == 2:
+            return 3
+        if posicion2 == 3:
+            return 4
+        if posicion2 == 4:
+            return 3
+        if posicion2 == 5:
+            return 2
+        if posicion2 == 6:
+            return 3
+        if posicion2 == 7:
+            return 2
+        if posicion2 == 8:
+            return 1
+    if posicion1 == 1:
+        if posicion2 == 5:
+            return 4
+        if posicion2 == 1:
+            return 5
+        if posicion2 == 2:
+            return 4
+        if posicion2 == 3:
+            return 3
+        if posicion2 == 4:
+            return 4
+        if posicion2 == 5:
+            return 3
+        if posicion2 == 6:
+            return 2
+        if posicion2 == 7:
+            return 3
+        if posicion2 == 8:
+            return 2
+    if posicion1 == 2:
+        if posicion2 == 5:
+            return 3
+        if posicion2 == 1:
+            return 4
+        if posicion2 == 2:
+            return 5
+        if posicion2 == 3:
+            return 2
+        if posicion2 == 4:
+            return 3
+        if posicion2 == 5:
+            return 4
+        if posicion2 == 6:
+            return 1
+        if posicion2 == 7:
+            return 2
+        if posicion2 == 8:
+            return 3
+    if posicion1 == 3:
+        if posicion2 == 5:
+            return 4
+        if posicion2 == 1:
+            return 3
+        if posicion2 == 2:
+            return 2
+        if posicion2 == 3:
+            return 5
+        if posicion2 == 4:
+            return 4
+        if posicion2 == 5:
+            return 3
+        if posicion2 == 6:
+            return 4
+        if posicion2 == 7:
+            return 3
+        if posicion2 == 8:
+            return 2
+    if posicion1 == 4:
+        if posicion2 == 5:
+            return 3
+        if posicion2 == 1:
+            return 4
+        if posicion2 == 2:
+            return 3
+        if posicion2 == 3:
+            return 4
+        if posicion2 == 4:
+            return 5
+        if posicion2 == 5:
+            return 4
+        if posicion2 == 6:
+            return 3
+        if posicion2 == 7:
+            return 4
+        if posicion2 == 8:
+            return 3
+    if posicion1 == 5:
+        if posicion2 == 5:
+            return 2
+        if posicion2 == 1:
+            return 3
+        if posicion2 == 2:
+            return 4
+        if posicion2 == 3:
+            return 3
+        if posicion2 == 4:
+            return 4
+        if posicion2 == 5:
+            return 5
+        if posicion2 == 6:
+            return 2
+        if posicion2 == 7:
+            return 3
+        if posicion2 == 8:
+            return 4
+    if posicion1 == 6:
+        if posicion2 == 5:
+            return 3
+        if posicion2 == 1:
+            return 2
+        if posicion2 == 2:
+            return 1
+        if posicion2 == 3:
+            return 4
+        if posicion2 == 4:
+            return 3
+        if posicion2 == 5:
+            return 2
+        if posicion2 == 6:
+            return 5
+        if posicion2 == 7:
+            return 4
+        if posicion2 == 8:
+            return 3
+    if posicion1 == 7:
+        if posicion2 == 5:
+            return 2
+        if posicion2 == 1:
+            return 3
+        if posicion2 == 2:
+            return 2
+        if posicion2 == 3:
+            return 3
+        if posicion2 == 4:
+            return 4
+        if posicion2 == 5:
+            return 3
+        if posicion2 == 6:
+            return 4
+        if posicion2 == 7:
+            return 5
+        if posicion2 == 8:
+            return 4
+    if posicion1 == 8:
+        if posicion2 == 5:
+            return 1
+        if posicion2 == 1:
+            return 2
+        if posicion2 == 2:
+            return 3
+        if posicion2 == 3:
+            return 2
+        if posicion2 == 4:
+            return 3
+        if posicion2 == 5:
+            return 4
+        if posicion2 == 6:
+            return 3
+        if posicion2 == 7:
+            return 4
+        if posicion2 == 8:
+            return 5
+
+def calcular_informacion(puzzle, puzzle_meta):
+    index_0 = puzzle.index(0)
+    index_1 = puzzle.index(1)
+    index_2 = puzzle.index(2)
+    index_3 = puzzle.index(3)
+    index_4 = puzzle.index(4)
+    index_5 = puzzle.index(5)
+    index_6 = puzzle.index(6)
+    index_7 = puzzle.index(7)
+    index_8 = puzzle.index(8)
+
+    final_0 = puzzle_meta.index(0)
+    final_1 = puzzle_meta.index(1)
+    final_2 = puzzle_meta.index(2)
+    final_3 = puzzle_meta.index(3)
+    final_4 = puzzle_meta.index(4)
+    final_5 = puzzle_meta.index(5)
+    final_6 = puzzle_meta.index(6)
+    final_7 = puzzle_meta.index(7)
+    final_8 = puzzle_meta.index(8)
+
+    peso = 0.0
+    peso = peso + calcular_informacion_solop(index_0, final_0)
+    peso = peso + calcular_informacion_solop(index_1, final_1)
+    peso = peso + calcular_informacion_solop(index_2, final_2)
+    peso = peso + calcular_informacion_solop(index_3, final_3)
+    peso = peso + calcular_informacion_solop(index_4, final_4)
+    peso = peso + calcular_informacion_solop(index_5, final_5)
+    peso = peso + calcular_informacion_solop(index_6, final_6)
+    peso = peso + calcular_informacion_solop(index_7, final_7)
+    peso = peso + calcular_informacion_solop(index_8, final_8)
+
+    return peso
+
+def calcular_heuristica(puzzle, puzzle_meta):
+    index_0 = puzzle.index(0)
+    index_1 = puzzle.index(1)
+    index_2 = puzzle.index(2)
+    index_3 = puzzle.index(3)
+    index_4 = puzzle.index(4)
+    index_5 = puzzle.index(5)
+    index_6 = puzzle.index(6)
+    index_7 = puzzle.index(7)
+    index_8 = puzzle.index(8)
+
+    final_0 = puzzle_meta.index(0)
+    final_1 = puzzle_meta.index(1)
+    final_2 = puzzle_meta.index(2)
+    final_3 = puzzle_meta.index(3)
+    final_4 = puzzle_meta.index(4)
+    final_5 = puzzle_meta.index(5)
+    final_6 = puzzle_meta.index(6)
+    final_7 = puzzle_meta.index(7)
+    final_8 = puzzle_meta.index(8)
+
+    peso = 0.0
+    peso = peso + calcular_1(index_0, final_0)
+    peso = peso + calcular_1(index_1, final_1)
+    peso = peso + calcular_1(index_2, final_2)
+    peso = peso + calcular_1(index_3, final_3)
+    peso = peso + calcular_1(index_4, final_4)
+    peso = peso + calcular_1(index_5, final_5)
+    peso = peso + calcular_1(index_6, final_6)
+    peso = peso + calcular_1(index_7, final_7)
+    peso = peso + calcular_1(index_8, final_8)
+
+    return peso
+
+
+
+
+'''lista1 = [
+    1, 2, 3, 4, 5, 6, 7, 8, 0
+]
+
+lista2 = [
+    1, 2, 3, 4, 5, 0, 7, 8, 6
+]
+
+lista3 = [
+    6, 2, 5, 4, 3, 0, 1, 7, 8
+]
+
+print(calcular_heuristica(lista3, lista1))
+
+print(calcular_1(1,2))'''
+
+def ordenamiento_burbuja(unaLista):
+    for numPasada in range(len(unaLista)-1,0,-1):
+        for i in range(numPasada):
+            print("En burbuja")
+            if unaLista[i].get_heuristica() < unaLista[i+1].get_heuristica():
+                temp = unaLista[i]
+                unaLista[i] = unaLista[i+1]
+                unaLista[i+1] = temp
+
+    return unaLista
+
+
+

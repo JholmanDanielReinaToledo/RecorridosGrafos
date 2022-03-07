@@ -3,6 +3,7 @@ from tkinter import messagebox
 from general import validar_puzzle
 from BPA import algoritmo_BPA
 from BPP import algoritmo_BPP
+from ascenso_colina import algoritmo_ascenso_colina
 
 class interfaz_grafica_class:
 
@@ -257,7 +258,38 @@ class interfaz_grafica_class:
             messagebox.showerror(title="Error", message="Nivel maximo no valido")
 
     def ejecutar_ascenso_de_colina(self):
-        print("Ascenso de colina")
+        nodo_inicial = self.obtener_nodo_inicial()
+        nodo_final = self.obtener_nodo_final()
+
+        if nodo_inicial and nodo_final:
+            es_valido_inicial = validar_puzzle(nodo_inicial)
+            es_valido_final = validar_puzzle(nodo_final)
+            if es_valido_inicial and es_valido_final:
+                clase = algoritmo_ascenso_colina(nodo_inicial, nodo_final)
+                reglas_aplicadas, nodos_generados, num_nodos_gen = clase.iniciar()
+                reglas = reglas_aplicadas[::-1]
+                texto = ""
+                primero = False
+                for i in reglas:
+                    if primero:
+                        texto = texto + i + "\n"
+                    primero = True
+                self.text_area_reglas.delete('1.0', tkinter.END)
+                self.text_area_reglas.insert(tkinter.END, texto)
+                self.text_area_nodos.delete('1.0', tkinter.END)
+                self.text_area_nodos.insert(tkinter.END, nodos_generados)
+                self.text_area_nodos_num.delete('1.0', tkinter.END)
+                self.text_area_nodos_num.insert(tkinter.END, str(num_nodos_gen))
+
+            elif not es_valido_inicial:
+                messagebox.showerror(title="Error", message="El nodo inicial no es valido")
+            elif not es_valido_final:
+                messagebox.showerror(title="Error", message="El nodo final no es valido")
+        else:
+            if not nodo_inicial:
+                messagebox.showerror(title="Error", message="El nodo inicial no es valido")
+            if not nodo_final:
+                messagebox.showerror(title="Error", message="El nodo final no es valido")
 
     def ejecutar_ramificacion_acotamiento(self):
         print("Ramificación y acotamiento")
