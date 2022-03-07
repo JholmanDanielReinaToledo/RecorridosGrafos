@@ -167,7 +167,7 @@ class interfaz_grafica_class:
         except:
             return False
 
-    def ejecutar_bpp(self):
+    def ejecutar_bpa(self):
         nodo_inicial = self.obtener_nodo_inicial()
         nodo_final = self.obtener_nodo_final()
 
@@ -201,8 +201,8 @@ class interfaz_grafica_class:
             if not nodo_final:
                 messagebox.showerror(title="Error", message="El nodo final no es valido")
 
-    def ejecutar_bpa(self):
-        print("BPA")
+    def ejecutar_bpp(self):
+        print("BPP")
 
     def ejecutar_ascenso_de_colina(self):
         print("Ascenso de colina")
