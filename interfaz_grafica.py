@@ -2,6 +2,7 @@ import tkinter
 from tkinter import messagebox
 from general import validar_puzzle
 from BPA import algoritmo_BPA
+from BPP import algoritmo_BPP
 
 class interfaz_grafica_class:
 
@@ -21,10 +22,10 @@ class interfaz_grafica_class:
         self.root.configure(width=1000, height=800)
 
     def crear_campos_adicionales(self):
-        tkinter.Label(self.root, text='Nivel de profundidad para BPA').place(x=460, y=0)
+        tkinter.Label(self.root, text='Nivel de profundidad para BPA').place(x=300, y=180)
 
-        self.primera_posicion_final = tkinter.Entry(self.root, width=4)
-        self.primera_posicion_final.place(x=450, y=20, height=30)
+        self.nivel_maximo = tkinter.Entry(self.root, width=4)
+        self.nivel_maximo.place(x=300, y=200, height=30)
 
     def crear_campos_area_texto(self):
         tkinter.Label(self.root, text='Reglas aplicadas').place(x=20, y=380)
@@ -167,6 +168,18 @@ class interfaz_grafica_class:
         except:
             return False
 
+    def obtener_nivel(self):
+        max = self.nivel_maximo.get()
+
+        try:
+            max = int(max)
+            if max > 0:
+                return max
+            else:
+                return False
+        except:
+            return False
+
     def ejecutar_bpa(self):
         nodo_inicial = self.obtener_nodo_inicial()
         nodo_final = self.obtener_nodo_final()
@@ -202,7 +215,46 @@ class interfaz_grafica_class:
                 messagebox.showerror(title="Error", message="El nodo final no es valido")
 
     def ejecutar_bpp(self):
-        print("BPP")
+        nodo_inicial = self.obtener_nodo_inicial()
+        nodo_final = self.obtener_nodo_final()
+        nivel_maximo = self.obtener_nivel()
+
+        if nivel_maximo:
+            if nodo_inicial and nodo_final:
+                es_valido_inicial = validar_puzzle(nodo_inicial)
+                es_valido_final = validar_puzzle(nodo_final)
+                if es_valido_inicial and es_valido_final:
+                    clase = algoritmo_BPP(nodo_inicial, nodo_final, nivel_maximo)
+                    reglas_aplicadas, nodos_generados, num_nodos_gen = clase.iniciar()
+                    if reglas_aplicadas and nodos_generados and num_nodos_gen:
+
+                        reglas = reglas_aplicadas[::-1]
+                        texto = ""
+                        primero = False
+                        for i in reglas:
+                            if primero:
+                                texto = texto + i + "\n"
+                            primero = True
+                        self.text_area_reglas.delete('1.0', tkinter.END)
+                        self.text_area_reglas.insert(tkinter.END, texto)
+                        self.text_area_nodos.delete('1.0', tkinter.END)
+                        self.text_area_nodos.insert(tkinter.END, nodos_generados)
+                        self.text_area_nodos_num.delete('1.0', tkinter.END)
+                        self.text_area_nodos_num.insert(tkinter.END, str(num_nodos_gen))
+                    else:
+                        messagebox.showerror(title="Error", message="Con el nivel maximo no fue posible encontrar una solución")
+
+                elif not es_valido_inicial:
+                    messagebox.showerror(title="Error", message="El nodo inicial no es valido")
+                elif not es_valido_final:
+                    messagebox.showerror(title="Error", message="El nodo final no es valido")
+            else:
+                if not nodo_inicial:
+                    messagebox.showerror(title="Error", message="El nodo inicial no es valido")
+                if not nodo_final:
+                    messagebox.showerror(title="Error", message="El nodo final no es valido")
+        else:
+            messagebox.showerror(title="Error", message="Nivel maximo no valido")
 
     def ejecutar_ascenso_de_colina(self):
         print("Ascenso de colina")

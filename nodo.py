@@ -29,3 +29,9 @@ class nodo_class:
 
     def get_puzzle(self):
         return self.puzzle
+
+    def set_profundidad(self, profundidad):
+        self.profundidad = profundidad
+
+    def get_profundidad(self):
+        return self.profundidad
