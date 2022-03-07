@@ -493,7 +493,7 @@ def calcular_informacion_solop(posicion1: int, posicion2: int):
         if posicion2 == 8:
             return 1
     if posicion1 == 1:
-        if posicion2 == 5:
+        if posicion2 == 0:
             return 4
         if posicion2 == 1:
             return 5
@@ -512,7 +512,7 @@ def calcular_informacion_solop(posicion1: int, posicion2: int):
         if posicion2 == 8:
             return 2
     if posicion1 == 2:
-        if posicion2 == 5:
+        if posicion2 == 0:
             return 3
         if posicion2 == 1:
             return 4
@@ -531,7 +531,7 @@ def calcular_informacion_solop(posicion1: int, posicion2: int):
         if posicion2 == 8:
             return 3
     if posicion1 == 3:
-        if posicion2 == 5:
+        if posicion2 == 0:
             return 4
         if posicion2 == 1:
             return 3
@@ -550,7 +550,7 @@ def calcular_informacion_solop(posicion1: int, posicion2: int):
         if posicion2 == 8:
             return 2
     if posicion1 == 4:
-        if posicion2 == 5:
+        if posicion2 == 0:
             return 3
         if posicion2 == 1:
             return 4
@@ -569,7 +569,7 @@ def calcular_informacion_solop(posicion1: int, posicion2: int):
         if posicion2 == 8:
             return 3
     if posicion1 == 5:
-        if posicion2 == 5:
+        if posicion2 == 0:
             return 2
         if posicion2 == 1:
             return 3
@@ -588,7 +588,7 @@ def calcular_informacion_solop(posicion1: int, posicion2: int):
         if posicion2 == 8:
             return 4
     if posicion1 == 6:
-        if posicion2 == 5:
+        if posicion2 == 0:
             return 3
         if posicion2 == 1:
             return 2
@@ -607,7 +607,7 @@ def calcular_informacion_solop(posicion1: int, posicion2: int):
         if posicion2 == 8:
             return 3
     if posicion1 == 7:
-        if posicion2 == 5:
+        if posicion2 == 0:
             return 2
         if posicion2 == 1:
             return 3
@@ -626,7 +626,7 @@ def calcular_informacion_solop(posicion1: int, posicion2: int):
         if posicion2 == 8:
             return 4
     if posicion1 == 8:
-        if posicion2 == 5:
+        if posicion2 == 0:
             return 1
         if posicion2 == 1:
             return 2
@@ -666,7 +666,7 @@ def calcular_informacion(puzzle, puzzle_meta):
     final_7 = puzzle_meta.index(7)
     final_8 = puzzle_meta.index(8)
 
-    peso = 0.0
+    peso = 0
     peso = peso + calcular_informacion_solop(index_0, final_0)
     peso = peso + calcular_informacion_solop(index_1, final_1)
     peso = peso + calcular_informacion_solop(index_2, final_2)
@@ -735,7 +735,6 @@ print(calcular_1(1,2))'''
 def ordenamiento_burbuja(unaLista):
     for numPasada in range(len(unaLista)-1,0,-1):
         for i in range(numPasada):
-            print("En burbuja")
             if unaLista[i].get_heuristica() < unaLista[i+1].get_heuristica():
                 temp = unaLista[i]
                 unaLista[i] = unaLista[i+1]
@@ -743,5 +742,13 @@ def ordenamiento_burbuja(unaLista):
 
     return unaLista
 
-
+def ordenamiento_burbuja_asc(unaLista):
+    for numPasada in range(len(unaLista)-1,0,-1):
+        for i in range(numPasada):
+            print("En burbuja")
+            if unaLista[i].get_heuristica() > unaLista[i+1].get_heuristica():
+                temp = unaLista[i]
+                unaLista[i] = unaLista[i+1]
+                unaLista[i+1] = temp
+    return unaLista
 

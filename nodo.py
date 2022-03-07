@@ -3,6 +3,7 @@ class nodo_class:
     def __init__(self, padre, puzzle, regla):
         self.set_puzzle(puzzle)
         self.heuristica = 0
+        self.informacion = 0
         self.set_padre(padre)
         self.hijos = list()
         self.set_regla_aplicada(regla)
@@ -42,3 +43,9 @@ class nodo_class:
 
     def get_heuristica(self):
         return self.heuristica
+
+    def set_informacion(self, informacion):
+        self.informacion = informacion
+
+    def get_informacion(self):
+        return self.informacion
