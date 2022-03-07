@@ -1,5 +1,6 @@
 from tkinter import messagebox
 
+import copy
 from nodo import nodo_class
 import general
 
@@ -10,19 +11,14 @@ class algoritmo_BPA:
         self.fin = puzzle_final.copy()
         self.lista_abierto = [self.inicial]
         self.lista_cerrado = []
-        self.iniciar()
 
     def iniciar(self):
         contador = 0
         while len(self.lista_abierto) > 0:
-            #print("primera", contador)
             contador = contador + 1
             nodo = self.lista_abierto[0]
-            print("Lista cerrada", len(self.lista_cerrado))
-            print("Lista abierta", len(self.lista_abierto))
             self.lista_abierto.pop(0)
             if not general.nodo_en_lista_cerrado(self.lista_cerrado, nodo):
-                print("entro")
                 self.lista_cerrado.append(nodo)
                 sucesores = general.obtener_sucesores(nodo)
                 if len(sucesores) > 0 and not general.validar_puzzle_en_nodos(sucesores, self.fin.copy()):
@@ -35,7 +31,30 @@ class algoritmo_BPA:
                     break
         if self.nodo_final:
             messagebox.showinfo(title="Exito", message="Exito, nodo encontrado")
-            print(self.nodo_final.get_puzzle())
+            return self.get_nodo_final(self.nodo_final), self.get_nodos_generados(self.lista_cerrado), len(self.lista_cerrado)
+        else:
+            return False
+
+    def get_nodo_final(self, nodo: nodo_class):
+        lista = []
+        lista.append(nodo.get_regla_aplicada())
+        nodo = copy.deepcopy(nodo)
+        while nodo.get_padre():
+            nodo = copy.deepcopy(nodo.get_padre())
+            lista.append(nodo.get_regla_aplicada())
+        return lista
+
+    def get_nodos_generados(self, lista):
+        texto = ""
+        contador = 0
+        for nodo in lista:
+            contador = contador + 1
+            texto = texto + "Nodo: " + str(contador) + "\n"
+            texto = texto + general.imprimir_puzzle(nodo.get_puzzle())
+            texto = texto + "\n"
+
+        return texto
+
 
 '''lista1 = [
     1, 2, 3, 4, 5, 6, 7, 8, 0

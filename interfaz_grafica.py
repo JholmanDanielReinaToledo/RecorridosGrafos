@@ -10,13 +10,34 @@ class interfaz_grafica_class:
     def __init__(self):
         self.crear_ventana()
         self.botones()
+        self.crear_campos_area_texto()
         self.crear_campos_nodo_inicial()
         self.crear_campos_nodo_final()
+        self.crear_campos_adicionales()
         self.root.mainloop()
 
     def crear_ventana(self):
         self.root.title("Algoritmos de busqueda")
         self.root.configure(width=1000, height=800)
+
+    def crear_campos_adicionales(self):
+        tkinter.Label(self.root, text='Nivel de profundidad para BPA').place(x=460, y=0)
+
+        self.primera_posicion_final = tkinter.Entry(self.root, width=4)
+        self.primera_posicion_final.place(x=450, y=20, height=30)
+
+    def crear_campos_area_texto(self):
+        tkinter.Label(self.root, text='Reglas aplicadas').place(x=20, y=380)
+        self.text_area_reglas = tkinter.Text(self.root, height=20, width=50)
+        self.text_area_reglas.place(x=20, y=400)
+
+        tkinter.Label(self.root, text='Nodos generados').place(x=700, y=20)
+        self.text_area_nodos = tkinter.Text(self.root, height=40, width=25)
+        self.text_area_nodos.place(x=700, y=40)
+
+        tkinter.Label(self.root, text='Número de nodos generados').place(x=700, y=740)
+        self.text_area_nodos_num = tkinter.Text(self.root, height=1, width=25)
+        self.text_area_nodos_num.place(x=700, y=760)
 
     def botones(self):
         self.iniciar_boton = tkinter.Button(self.root, command=self.ejecutar_bpp, text="BPP", width=30, height=3)
@@ -154,8 +175,22 @@ class interfaz_grafica_class:
             es_valido_inicial = validar_puzzle(nodo_inicial)
             es_valido_final = validar_puzzle(nodo_final)
             if es_valido_inicial and es_valido_final:
-                pass
-                algoritmo_BPA(nodo_inicial, nodo_final)
+                clase = algoritmo_BPA(nodo_inicial, nodo_final)
+                reglas_aplicadas, nodos_generados, num_nodos_gen = clase.iniciar()
+                reglas = reglas_aplicadas[::-1]
+                texto = ""
+                primero = False
+                for i in reglas:
+                    if primero:
+                        texto = texto + i + "\n"
+                    primero = True
+                self.text_area_reglas.delete('1.0', tkinter.END)
+                self.text_area_reglas.insert(tkinter.END, texto)
+                self.text_area_nodos.delete('1.0', tkinter.END)
+                self.text_area_nodos.insert(tkinter.END, nodos_generados)
+                self.text_area_nodos_num.delete('1.0', tkinter.END)
+                self.text_area_nodos_num.insert(tkinter.END, str(num_nodos_gen))
+
             elif not es_valido_inicial:
                 messagebox.showerror(title="Error", message="El nodo inicial no es valido")
             elif not es_valido_final:

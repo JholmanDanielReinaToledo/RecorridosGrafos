@@ -46,15 +46,3 @@ def mover_0_abajo(puzzle):
         return False
 
     return mover_abajo_generic(puzzle, posicion)
-
-
-
-#lista1 = [
-#    1, 0, 2, 2, 5, 1, 1, 8, 9
-#]
-
-#imprimir_bonito(lista1)
-#imprimir_bonito(mover_0_abajo(lista1))
-# print(mover_0_derecha(lista1))
-# print(mover_0_izquierda(lista1))
-

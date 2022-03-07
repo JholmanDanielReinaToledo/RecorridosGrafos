@@ -79,10 +79,23 @@ def imprimir_bonito(puzzle):
         for elemnto in range(3):
             for elemnto2 in range(3):
                 print(str(puzzle[contador]) + " ", end="")
-                contador = contador+1
+                contador = contador + 1
             print("")
     else:
         print("No se puede imprimir")
+
+def imprimir_puzzle(puzzle):
+    if puzzle:
+        contador = 0
+        texto = ""
+        for elemnto in range(3):
+            for elemnto2 in range(3):
+                texto = texto + str(puzzle[contador])
+                contador = contador + 1
+            texto = texto + "\n"
+        return texto
+    else:
+        return "No se puede imprimir"
 
 def obtener_sucesores(nodo: nodo_class):
     sucesores = list()
